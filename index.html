@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es-UY">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUNDOMIX - Tienda Online Uruguay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #16a34a;
+            --bg: #fafaf9;
+            --text: #1c1917;
+            --text-light: #78716c;
+            --border: #e7e5e4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            padding: 0.625rem 1.25rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Logo animado */
+        .logo-hero {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .logo-circle {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #d6d3d1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(34, 197, 94, 0); }
+        }
+        
+        .logo-inner {
+            width: 110px;
+            height: 110px;
+            border: 2px solid #d6d3d1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-text-curved {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo-text-curved text {
+            fill: var(--primary);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .logo-mm {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #a8a29e;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .dot-left { left: 15px; }
+        .dot-right { right: 15px; }
+        
+        /* Features */
+        .features {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Products preview */
+        .products {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            background: var(--bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact {
+            margin-top: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="/" class="logo">MUNDOMIX</a>
+            <div class="nav-links">
+                <a href="/">Inicio</a>
+                <a href="/#productos">Productos</a>
+                <a href="/login" class="btn btn-secondary">Iniciar Sesión</a>
+                <a href="/admin" class="btn btn-primary">Panel Admin</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="logo-hero">
+            <div class="logo-circle">
+                <div class="logo-inner">
+                    <svg class="logo-text-curved" viewBox="0 0 100 100">
+                        <path id="curve" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent"/>
+                        <text>
+                            <textPath href="#curve" startOffset="0%">
+                                MUNDOMIX • TIENDA ONLINE •
+                            </textPath>
+                        </text>
+                    </svg>
+                    <div class="dot dot-left"></div>
+                    <div class="dot dot-right"></div>
+                    <span class="logo-mm">MM</span>
+                </div>
+            </div>
+        </div>
+        <h1>Tienda Online Uruguay</h1>
+        <p>Productos de calidad con envío a domicilio ($250) o retiro en zona Aguada. Coordinamos todo por WhatsApp.</p>
+        <a href="/#productos" class="btn btn-primary" style="font-size: 1.125rem; padding: 1rem 2rem;">Ver Productos</a>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2 class="section-title">¿Cómo comprar?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h3>Elegí tus productos</h3>
+                <p>Seleccioná lo que te guste de nuestro catálogo</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>Pagá online</h3>
+                <p>MercadoPago, transferencia o efectivo</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Coordinamos por WhatsApp</h3>
+                <p>Envío a domicilio o retiro en Aguada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section class="products" id="productos">
+        <h2 class="section-title">Nuestros Productos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">👕</div>
+                <div class="product-info">
+                    <h3>Producto de Ejemplo 1</h3>
+                    <p>Descripción del producto de calidad</p>
+                    <div class="product-price">$ 990</div>
+                    <button class="btn btn-primary" style="width: 100%;">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👜</div>
+                <div class="product-info">
+                    <h3>Producto de Ejemplo 2</h3>
+                    <p>Otro producto excelente</p>
+                    <div class="product-price">$ 1.290</div>
+                    <button class="btn btn-primary" style="width: 100%;">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">👟</div>
+                <div class="product-info">
+                    <h3>Producto de Ejemplo 3</h3>
+                    <p>Más variedad para vos</p>
+                    <div class="product-price">$ 1.590</div>
+                    <button class="btn btn-primary" style="width: 100%;">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🎁</div>
+                <div class="product-info">
+                    <h3>Producto de Ejemplo 4</h3>
+                    <p>Ideal para regalar</p>
+                    <div class="product-price">$ 2.490</div>
+                    <button class="btn btn-primary" style="width: 100%;">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">MUNDOMIX</div>
+        <p>Tienda Online Uruguay 🇺🇾</p>
+        <div class="footer-contact">
+            <p>Zona Aguada, Montevideo</p>
+            <p>Envíos a todo el país • Coordinación por WhatsApp</p>
+        </div>
+    </footer>
+
+    <script>
+        // Verificar si hay usuario logueado
+        const token = localStorage.getItem('mundomix_access_token');
+        if (token) {
+            // Mostrar opciones de usuario logueado
+            console.log('Usuario logueado');
+        }
+    </script>
+</body>
+</html>
